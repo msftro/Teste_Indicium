@@ -9,7 +9,7 @@ from sklearn import model_selection
 from sklearn import ensemble
 
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.preprocessing import MultiLabelBinarizer, FunctionTransformer
+from sklearn.preprocessing import MultiLabelBinarizer
 
 # %%
 df = pd.read_csv('data/cleaned_data.csv')
@@ -20,8 +20,8 @@ df.columns
 
 # %%
 features = ['Released_Year', 'Certificate', 'Runtime', 'Genre',
-            'IMDB_Rating', 'Meta_score', 'No_of_Votes']
-target = 'Gross'
+            'Meta_score', 'No_of_Votes', 'Gross']
+target = 'IMDB_Rating'
 
 X = df[features]
 y = df[target]
@@ -139,21 +139,5 @@ model_export = pd.Series({
 
 # %%
 model_export.to_pickle('data/LH_CD_MARCIOFERREIRA.pkl')
-
-# %%
-# Acessando a importância das features
-feature_importance = pipe.named_steps['grid_search'].best_estimator_.feature_importances_
-processed_columns = pipe.named_steps['genre_tokenizer'].mlb.classes_
-
-used_features = ['Released_Year', 'Certificate', 'Runtime', 'IMDB_Rating',
-                 'Meta_score', 'No_of_Votes']
-
-processed_columns = list(processed_columns) + used_features
-
-#%%
-# Criando um DataFrame para visualização
-importance_df = pd.DataFrame({'Feature': processed_columns, 'Importance': feature_importance})
-importance_df = importance_df.sort_values(by='Importance', ascending=False)
-importance_df
 
 # %%
