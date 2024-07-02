@@ -1,12 +1,17 @@
 # Teste Cientista de Dados Indicium
 
-## Instruções:
+## Instruções
 
 Antes de iniciar o projeto, certifique-se de rodar o seguinte comando em posse do arquivo **requiriments.txt** disponibilizado no repositório.
 
 ```plaintext
 pip install -r requirements.txt
 ```
+
+O projeto contém três arquivos python:
+1. EDA.py - Toda a parte de limpeza da base de dados
+2. Train.py - Construção do modelo de *machine learning*
+3. Test.py - Importação do arquivo pkl gerado na etapa de treinamento e simulação de previsão do valor solicitado
 
 ## 1. Faça uma análise exploratória dos dados (EDA), demonstrando as principais características entre as variáveis e apresentando algumas hipóteses relacionadas. Seja criativo!
 
@@ -27,6 +32,10 @@ pip install -r requirements.txt
   #### Colunas Genre, Overview, Director e StarN
 
   Devido a grande variedade de nomes disponíveis nessas colunas, decidi utilizar somente *Genre* para o treinamento e avaliação de modelo.
+
+  #### Obervações
+
+  Durante a etapa de EDA, não identifiquei nenhum gráfico que proporcionasse insights significativos para a análise. Portanto, resolvi não utilizar.
 
 ## 2. Responda também às seguintes perguntas:
 
@@ -70,5 +79,5 @@ Poderíamos extrair as palavras mais frequentes em filmes de maior faturamento p
 
 Ao rodar o arquivo test.py o modelo calculou a seguinte nota: 8.63991283
 
-*Obs: As etapas de EDA deveriam ter sido feitas por pipeline para que os dados não necessitem ser tratados manualmente como foi feito na previsão.*
+**Obs: As etapas de EDA deveriam ter sido feitas por pipeline para que os dados não necessitem ser tratados manualmente como foi feito na previsão.**
 
